@@ -8,56 +8,56 @@ const sampleProjects = [
         category: "school",
         description: "Complete school management system with CBT exam navigation, results, and fee tracking.",
         techStack: ["Node.js", "Express", "MongoDB"],
-        link: "https://github.com/destisibor",
-        image: ""
+        liveLink: "https://github.com/destisibor",
+        imageUrl: ""
     },
     {
         title: "Company Website",
         category: "company",
         description: "Responsive, mobile-first corporate website designed for a tech enterprise.",
         techStack: ["HTML5", "CSS3", "Vanilla JS"],
-        link: "https://github.com/destisibor",
-        image: ""
+        liveLink: "https://github.com/destisibor",
+        imageUrl: ""
     },
     {
         title: "SwiftTrack Courier System",
         category: "business",
         description: "Automated logistics and package tracking platform with live status updates.",
         techStack: ["Node.js", "Express", "MongoDB", "JavaScript"],
-        link: "https://github.com/destisibor/swifttrack-courier-system",
-        image: ""
+        liveLink: "https://github.com/destisibor/swifttrack-courier-system",
+        imageUrl: ""
     },
     {
         title: "Android Service App",
         category: "mobile",
         description: "Native mobile application featuring custom layout XML design and activity event handling.",
         techStack: ["Java", "Android Studio", "XML"],
-        link: "https://github.com/destisibor",
-        image: ""
+        liveLink: "https://github.com/destisibor",
+        imageUrl: ""
     },
     {
         title: "Investment Dashboard",
         category: "web",
         description: "Backend web application managing user withdrawal rules, dispute handling, and cron jobs.",
         techStack: ["Node.js", "Express", "Mongoose"],
-        link: "https://github.com/destisibor",
-        image: ""
+        liveLink: "https://github.com/destisibor",
+        imageUrl: ""
     },
     {
         title: "E-Commerce Store",
         category: "ecommerce",
         description: "Fully functional online store featuring custom administrative interfaces and database validation.",
         techStack: ["Node.js", "Express", "MongoDB", "CSS"],
-        link: "https://github.com/destisibor",
-        image: ""
+        liveLink: "https://github.com/destisibor",
+        imageUrl: ""
     },
     {
         title: "WebUni",
         category: "school",
         description: "Modern educational platform featuring course pages, dynamic navigation, and responsive layouts.",
         techStack: ["React", "Vite", "JavaScript", "CSS"],
-        link: "https://webuni.onrender.com",
-        image: ""
+        liveLink: "https://webuni.onrender.com",
+        imageUrl: ""
     }
 ];
 
@@ -76,9 +76,9 @@ const seedDB = async () => {
         await Project.deleteMany({});
 
         console.log('Inserting new portfolio projects...');
-        await Project.insertMany(sampleProjects);
+        const inserted = await Project.insertMany(sampleProjects);
 
-        console.log('Projects successfully seeded to database!');
+        console.log(`Projects successfully seeded to database! (${inserted.length} projects)`);
         process.exit();
     } catch (error) {
         console.error('Error seeding projects:', error);
