@@ -50,6 +50,14 @@ const sampleProjects = [
         techStack: ["Node.js", "Express", "MongoDB", "CSS"],
         link: "https://github.com/destisibor",
         image: ""
+    },
+    {
+        title: "WebUni",
+        category: "school",
+        description: "Modern educational platform featuring course pages, dynamic navigation, and responsive layouts.",
+        techStack: ["React", "Vite", "JavaScript", "CSS"],
+        link: "https://webuni.onrender.com",
+        image: ""
     }
 ];
 
