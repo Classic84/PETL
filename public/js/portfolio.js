@@ -23,8 +23,17 @@ function renderProjects(data) {
 
     grid.innerHTML = data.map(project => {
         // Support both new schema (liveLink/imageUrl) and legacy (link/image)
-        const liveUrl = project.liveLink || project.link || '#';
+        const liveUrl = project.liveLink || project.link || '';
         const techList = project.techStack || project.tech || [];
+
+        // If a project has no public link, show a "Request Demo" CTA instead
+        const ctaHtml = liveUrl
+            ? `<a href="${escapeHTML(liveUrl)}" class="project-link" target="_blank" rel="noopener noreferrer">
+                   View Project <i class="fas fa-arrow-right"></i>
+               </a>`
+            : `<a href="#contact" class="project-link">
+                   Request Demo <i class="fas fa-arrow-right"></i>
+               </a>`;
 
         return `
         <div class="project-card">
@@ -37,9 +46,7 @@ function renderProjects(data) {
                 <div class="project-tech">
                     ${techList.map(t => `<span>${escapeHTML(t)}</span>`).join('')}
                 </div>
-                <a href="${escapeHTML(liveUrl)}" class="project-link" target="_blank" rel="noopener noreferrer">
-                    View Project <i class="fas fa-arrow-right"></i>
-                </a>
+                ${ctaHtml}
             </div>
         </div>
         `;
